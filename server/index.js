@@ -24,6 +24,9 @@ mongoose
     console.log(err);
   });
 
+app.get("/",(req , res) => {
+  res.json("Hello")
+})
 app.use("/api/auth", userRouter);
 app.use("/api/user", userRouter)
 
