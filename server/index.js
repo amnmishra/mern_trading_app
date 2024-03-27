@@ -4,7 +4,13 @@ const cors = require("cors");
 const userRouter = require("./user/route");
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin:["https://mern-trading-api-git-main-amans-projects-ae48b0ab.vercel.app/"],
+    methods:["POST" , "GET"],
+    credentials:true
+  }
+));
 app.use(express.json());
 
 mongoose
@@ -18,6 +24,9 @@ mongoose
     console.log(err);
   });
 
+app.get("/",(req , res) => {
+  res.json("Hello")
+})
 app.use("/api/auth", userRouter);
 app.use("/api/user", userRouter)
 
