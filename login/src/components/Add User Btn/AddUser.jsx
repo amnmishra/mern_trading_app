@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const apiUrl = process.env.API_URL;
 function AddUser() {
   const [showForm, setShowForm] = useState(false);
   const [email, setEmail] = useState("");
@@ -16,7 +17,7 @@ function AddUser() {
     e.preventDefault();
     // Add logic to handle submitting the form data (e.g., sending it to an API)
     axios
-      .post("http://localhost:3001/api/auth/register", {
+      .post(`${apiUrl}/api/auth/register`, {
         name,
         email,
         password,

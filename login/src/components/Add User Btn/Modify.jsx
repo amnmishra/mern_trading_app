@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+
+const apiUrl = process.env.API_URL;
 function UpdateBalance() {
   const [showForm, setShowForm] = useState(false);
 //   const [email, setEmail] = useState('');
@@ -15,7 +17,7 @@ function UpdateBalance() {
   const  handleSubmit = async(e) => {
     e.preventDefault();
    await axios
-      .post("http://localhost:3001/api/user/addBalance", { email, newBalance })
+      .post(`${apiUrl}/api/user/addBalance`, { email, newBalance })
       .then((res) => {
         console.log(res.data);
         alert("Balance updated successfully");

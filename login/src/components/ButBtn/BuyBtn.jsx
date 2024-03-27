@@ -84,10 +84,11 @@ const StockPrice = () => {
   useEffect(() => {
     const fetchPrices = async () => {
       try {
+        const TRADE_TOKEN = process.env.TRADE_TOKEN;
         const pricesData = {};
         await Promise.all(
           selectedStocks.map(async (stock) => {
-            const response = await axios.get('http');
+            const response = await axios.get(`https://cloud.iexapis.com/stable/stock/${stock}/quote?token=${TRADE_TOKEN}`);
 
             if (response.status !== 200) {
               throw new Error("Failed to fetch data");
