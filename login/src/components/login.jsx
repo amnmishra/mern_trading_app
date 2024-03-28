@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+const apiUrl = process.env.API_URL;
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -16,7 +17,7 @@ const [userData, setUserData] = useState([]);
     e.preventDefault()  ;
 
     axios
-      .post("http://localhost:3001/api/auth/login", { email, password })
+      .post(`${apiUrl}/api/auth/login`, { email, password })
       .then((res) => {
         // const jsonData=res.data
         const jsonArray=res.data.data

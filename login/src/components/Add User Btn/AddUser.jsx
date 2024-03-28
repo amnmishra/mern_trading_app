@@ -17,7 +17,7 @@ function AddUser() {
     e.preventDefault();
     // Add logic to handle submitting the form data (e.g., sending it to an API)
     axios
-      .post(`${apiUrl}/api/auth/register`, {
+      .post(`https://mern-trading-api.vercel.app/api/auth/register`, {
         name,
         email,
         password,
