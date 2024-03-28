@@ -17,7 +17,7 @@ const [userData, setUserData] = useState([]);
     e.preventDefault()  ;
 
     axios
-      .post(`${apiUrl}/api/auth/login`, { email, password })
+      .post(`https://mern-trading-api.vercel.app/api/auth/login`, { email, password })
       .then((res) => {
         // const jsonData=res.data
         const jsonArray=res.data.data
